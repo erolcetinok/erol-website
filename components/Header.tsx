@@ -12,7 +12,8 @@ const navItems = [
 
 export default function Header() {
   return (
-    <header className="site-header">
+        <header className="site-header" style={{ border: "6px solid red" }}>
+    {/* <header className="site-header"> */}
       <div className="site-header__inner">
         <Link href="/" className="brand">
           <Image
