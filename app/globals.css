@@ -24,38 +24,48 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* =========================
+   Layout Container
+   ========================= */
+
 :root {
-  --max: 1080px;
-  --pad: 20px;
-  --border: rgba(0, 0, 0, 0.12);
+  --max-width: 1080px;
+  --page-padding: 20px;
+  --border-color: color-mix(in srgb, var(--foreground) 15%, transparent);
 }
 
 .page {
-  max-width: var(--max);
+  max-width: var(--max-width);
   margin: 0 auto;
-  padding: 40px var(--pad);
+  padding: 48px var(--page-padding);
   min-height: 70vh;
 }
 
+/* =========================
+   Header
+   ========================= */
+
 .site-header {
-  border-bottom: 1px solid var(--border);
-  background: white;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--background);
 }
 
 .site-header__inner {
-  max-width: var(--max);
+  max-width: var(--max-width);
   margin: 0 auto;
-  padding: 18px var(--pad);
+  padding: 20px var(--page-padding);
   display: flex;
-  gap: 24px;
   align-items: center;
   justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
 }
 
 .brand {
   display: flex;
-  gap: 12px;
   align-items: center;
+  gap: 12px;
   text-decoration: none;
   color: inherit;
 }
@@ -70,50 +80,53 @@ body {
 .brand__tagline {
   font-size: 14px;
   opacity: 0.7;
-  margin-top: 2px;
+  margin-top: 4px;
 }
 
 .nav {
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
-  justify-content: flex-end;
 }
 
 .nav__link {
+  font-size: 14px;
+  padding: 6px 10px;
+  border-radius: 8px;
   text-decoration: none;
   color: inherit;
   opacity: 0.8;
-  font-size: 14px;
-  padding: 6px 8px;
-  border-radius: 8px;
 }
 
 .nav__link:hover {
   opacity: 1;
-  background: rgba(0, 0, 0, 0.04);
+  background: color-mix(in srgb, var(--foreground) 6%, transparent);
 }
 
+/* =========================
+   Footer
+   ========================= */
+
 .site-footer {
-  border-top: 1px solid var(--border);
-  background: white;
+  border-top: 1px solid var(--border-color);
+  background: var(--background);
 }
 
 .site-footer__inner {
-  max-width: var(--max);
+  max-width: var(--max-width);
   margin: 0 auto;
-  padding: 18px var(--pad);
+  padding: 20px var(--page-padding);
   display: flex;
-  gap: 18px;
   align-items: center;
   justify-content: space-between;
+  gap: 18px;
   flex-wrap: wrap;
 }
 
 .footer-brand {
   display: flex;
-  gap: 10px;
   align-items: center;
+  gap: 10px;
 }
 
 .footer-brand__name {
@@ -122,8 +135,8 @@ body {
 
 .footer-links {
   display: flex;
-  gap: 12px;
   align-items: center;
+  gap: 12px;
 }
 
 .icon-link {
@@ -133,7 +146,7 @@ body {
 }
 
 .icon-link:hover {
-  background: rgba(0, 0, 0, 0.04);
+  background: color-mix(in srgb, var(--foreground) 6%, transparent);
 }
 
 .footer-meta {
