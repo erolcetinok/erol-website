@@ -42,14 +42,47 @@ body {
   font-family: var(--font-libre), serif;
 }
 
-/* Make sure headings stay Libre too */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: inherit;
+/* Headings are still Libre (but more distinct via size/spacing) */
+h1 {
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.6em;
+}
+
+h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  margin-top: 2.2em;
+  margin-bottom: 0.6em;
+}
+
+h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+}
+
+p {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  margin-bottom: 1.2em;
+  max-width: 68ch;
+}
+
+strong {
+  font-weight: 700;
+}
+
+small,
+.meta {
+  font-size: 0.85rem;
+  opacity: 0.75;
 }
 
 /* =========================
@@ -64,7 +97,7 @@ h6 {
 }
 
 /* =========================
-   Header (Inter only)
+   Header (Inter only) — stacked like reference
    ========================= */
 
 .site-header {
@@ -77,15 +110,17 @@ h6 {
 .site-header__inner {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 20px var(--page-padding);
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  flex-wrap: wrap;
+  padding: 26px var(--page-padding);
 }
 
+.site-header__inner--stacked {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Brand row */
 .brand {
   display: flex;
   align-items: center;
@@ -94,37 +129,65 @@ h6 {
   color: inherit;
 }
 
+.brand--stacked {
+  justify-content: center;
+}
+
+.brand__right {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.brand__slash {
+  font-weight: 800;
+  font-size: 65px;
+  line-height: 1;
+}
+
 .brand__name {
-  font-size: 28px;
-  font-weight: 700;
+  font-weight: 800;
+  font-size: 65px;
   letter-spacing: -0.02em;
-  line-height: 1.1;
+  line-height: 1;
 }
 
-.brand__tagline {
-  font-size: 14px;
-  opacity: 0.7;
-  margin-top: 4px;
-}
-
+/* Nav row */
 .nav {
   display: flex;
-  gap: 14px;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.nav--pipes {
+  gap: 10px;
+}
+
+.nav__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .nav__link {
-  font-size: 14px;
-  padding: 6px 10px;
-  border-radius: 8px;
   text-decoration: none;
   color: inherit;
-  opacity: 0.8;
+  opacity: 0.85;
+  padding: 2px 2px;
+  border-radius: 0;
 }
 
 .nav__link:hover {
   opacity: 1;
-  background: color-mix(in srgb, var(--foreground) 6%, transparent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.nav__pipe {
+  opacity: 0.55;
 }
 
 /* =========================
