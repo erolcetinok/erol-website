@@ -19,23 +19,26 @@ export default function Header({ className }: { className?: string }) {
   return (
     <header className={`site-header ${className || ""}`}>
       <div className="site-header__inner site-header__inner--stacked">
+        {/* Brand: always go home AND scroll to top */}
         <Link
-        href="/"
-        className="brand brand--stacked"
-        onClick={() => {
-        // Force scroll to top even if already on "/"
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }}
-    >
-      <Image
-        src="/logo.png"
-        alt="Erol Cetinok logo"
-        width={60}
-        height={60}
-        priority
-    />
+          href="/"
+          className="brand brand--stacked"
+          scroll={true}
+          onClick={() => {
+            // Ensures "go to top" even if already on "/"
+            window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+          }}
+        >
+          <Image
+            src="/logo.png"
+            alt="Erol Cetinok logo"
+            width={60}
+            height={60}
+            priority
+          />
           <span className="brand__name">Erol Cetinok</span>
         </Link>
+
         <nav aria-label="Primary" className="nav">
           {navItems.map((item) => {
             const isActive =

@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 
@@ -7,22 +9,23 @@ export default function Footer() {
   return (
     <footer className="site-footer">
       <div className="site-footer__inner site-footer__inner--stacked">
-        {/* Brand (scaled down vs header) */}
+        {/* Brand: always go home AND scroll to top */}
         <Link
-  href="/"
-  className="footer-brand footer-brand--stacked"
-  onClick={() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }}
->
-  <Image
-    src="/logo.png"
-    alt="Erol Cetinok logo"
-    width={42}
-    height={42}
-  />
-  <span className="footer-brand__name">Erol Cetinok</span>
-</Link>
+          href="/"
+          className="footer-brand footer-brand--stacked"
+          scroll={true}
+          onClick={() => {
+            window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+          }}
+        >
+          <Image
+            src="/logo.png"
+            alt="Erol Cetinok logo"
+            width={42}
+            height={42}
+          />
+          <span className="footer-brand__name">Erol Cetinok</span>
+        </Link>
 
         {/* Social icons */}
         <div className="footer-links footer-links--centered">
@@ -63,7 +66,10 @@ export default function Footer() {
             Erol Cetinok © {year}
           </div>
 
-          <a className="footer-line footer-line--shout footer-email" href="mailto:erol.cetinok@gmail.com">
+          <a
+            className="footer-line footer-line--shout footer-email"
+            href="mailto:erol.cetinok@gmail.com"
+          >
             CONTACT @ erol (at) gmail (dot) com
           </a>
         </div>
