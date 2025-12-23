@@ -8,9 +8,9 @@ const navItems = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/projects", label: "Projects" },
-  { href: "/gallery", label: "Gallery" },
   { href: "/blog", label: "Blogs" },
   { href: "/research", label: "Research" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function Header({ className }: { className?: string }) {
