@@ -30,7 +30,7 @@ export default function Header({ className }: { className?: string }) {
           }}
         >
           <Image
-            src="/logo.png"
+            src="/icons/logo.png"
             alt="Erol Cetinok logo"
             width={60}
             height={60}

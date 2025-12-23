@@ -19,7 +19,7 @@ export default function Footer() {
           }}
         >
           <Image
-            src="/logo.png"
+            src="/icons/logo.png"
             alt="Erol Cetinok logo"
             width={42}
             height={42}
