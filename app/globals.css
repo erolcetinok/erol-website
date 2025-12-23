@@ -230,11 +230,14 @@ small,
   transform: scaleX(1);
 }
 
-/* Active page underline */
+/* Active page underline — thicker */
 .nav__link.is-active::after {
+  height: 4px;           /* ← thicker underline */
   opacity: 1;
   transform: scaleX(1);
 }
+
+
 
 /* Optional: make active link slightly bolder */
 .nav__link.is-active {
