@@ -8,99 +8,151 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-inter: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
+
+@media (prefers-color-scheme: dark) { /* dark mode */
   :root {
-    --background: #dfdac4;
-    --foreground: #4d2f2c;
+    --background: #4d2f2c;
+    --foreground: #dfdac4;
   }
 }
 
+/* global defaults for whole page */
 body {
+  /* theme variables */
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+
+  /* Font is now set via className in layout.tsx (Libre Baskerville) */
 }
 
+/* =========================
+   Layout constants
+   ========================= */
+
+/* You can define more variables later for spacing, shadows, etc.
+   NOTE: You have TWO :root blocks; that's totally valid.
+   They merge together. */
 :root {
+  /* Max width for page content (prevents ultra-wide lines) */
   --max-width: 1080px;
+
+  /* Horizontal padding so text doesn't touch the edges */
   --page-padding: 20px;
+
+  /* A subtle border color derived from your foreground color.
+     color-mix blends your foreground with transparent to get a light line. */
   --border-color: color-mix(in srgb, var(--foreground) 15%, transparent);
 }
 
+/* The <main class="page"> wrapper in layout.tsx uses this */
 .page {
+  /* Center content with a max width */
   max-width: var(--max-width);
   margin: 0 auto;
+
+  /* Add top/bottom padding + left/right padding */
   padding: 48px var(--page-padding);
+
+  /* Keeps footer from riding up on short pages */
   min-height: 70vh;
 }
 
 /* =========================
-   Header
+   Header styles
    ========================= */
 
+/* The header bar itself */
 .site-header {
+  /* Thin divider line below the header */
   border-bottom: 1px solid var(--border-color);
+
+  /* Match the site background */
   background: var(--background);
+  
+  /* Apply Inter font to all header content */
+  font-family: var(--font-inter, 'Inter', sans-serif);
 }
 
+/* Inner container: controls spacing and layout of logo/name vs nav */
 .site-header__inner {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 20px var(--page-padding);
+
+  /* Flexbox lays out children horizontally */
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
+
+  /* Allows nav to wrap under the logo on smaller screens */
   flex-wrap: wrap;
 }
 
+/* The clickable brand area (logo + name + tagline) */
 .brand {
   display: flex;
   align-items: center;
   gap: 12px;
+
+  /* Make links look like normal text */
   text-decoration: none;
   color: inherit;
 }
 
+/* Big name */
 .brand__name {
   font-size: 28px;
   font-weight: 700;
+
+  /* Small typography tweak to look more “designed” */
   letter-spacing: -0.02em;
   line-height: 1.1;
 }
 
+/* Smaller description line under your name */
 .brand__tagline {
   font-size: 14px;
   opacity: 0.7;
   margin-top: 4px;
 }
 
+/* Nav container */
 .nav {
   display: flex;
   gap: 14px;
+
+  /* Wrap nav links to a second line if needed */
   flex-wrap: wrap;
 }
 
+/* Individual nav link */
 .nav__link {
   font-size: 14px;
   padding: 6px 10px;
   border-radius: 8px;
+
   text-decoration: none;
   color: inherit;
   opacity: 0.8;
 }
 
+/* Hover behavior for nav links */
 .nav__link:hover {
   opacity: 1;
+
+  /* Slight background “pill” on hover */
   background: color-mix(in srgb, var(--foreground) 6%, transparent);
 }
 
 /* =========================
-   Footer
+   Footer styles
    ========================= */
 
 .site-footer {
@@ -112,13 +164,17 @@ body {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 20px var(--page-padding);
+
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 18px;
+
+  /* Allows footer to stack nicely on smaller screens */
   flex-wrap: wrap;
 }
 
+/* Left side: small logo + name */
 .footer-brand {
   display: flex;
   align-items: center;
@@ -129,30 +185,36 @@ body {
   font-weight: 600;
 }
 
+/* Middle: social icons row */
 .footer-links {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
+/* Makes the icon clickable area larger (better UX) */
 .icon-link {
   display: inline-flex;
   padding: 8px;
   border-radius: 10px;
 }
 
+/* Hover background for icons */
 .icon-link:hover {
   background: color-mix(in srgb, var(--foreground) 6%, transparent);
 }
 
+/* Right side: copyright + email stacked */
 .footer-meta {
   display: flex;
   flex-direction: column;
   gap: 4px;
+
   font-size: 13px;
   opacity: 0.8;
 }
 
+/* Email link styling */
 .email-link {
   color: inherit;
   text-decoration: none;
