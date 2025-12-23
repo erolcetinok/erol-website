@@ -23,7 +23,7 @@
 }
 
 /* Dark mode palette */
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
     --background: #000000;
     --foreground: #dfdac4;
@@ -163,89 +163,127 @@ small,
   width: 100%;
 }
 
-/* Add separators BETWEEN items (not trailing / not leading in JSX) */
+/* Nav row — true centered single line */
+.nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* IMPORTANT: no wrapping = no “new line starts with separator” bias */
+  flex-wrap: nowrap;
+
+  /* IMPORTANT: remove gap; spacing comes from separator margin */
+  gap: 0;
+
+  font-size: 20px;
+
+  /* If screen is too small, it will scroll instead of wrapping */
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Hide scrollbar (optional but nice) */
+.nav::-webkit-scrollbar {
+  display: none;
+}
+
+/* Items */
+.nav__item {
+  display: flex;
+  align-items: center;
+}
+
+/* Separator between items */
 .nav__item + .nav__item::before {
   content: "|";
   opacity: 0.55;
-  margin: 0 22px; /* controls spacing around the pipe */
-}
-
-.nav__link {
-  text-decoration: none;
-  color: inherit;
-  opacity: 0.85;
-  padding: 2px 2px;
-  border-radius: 0;
-}
-
-.nav__link:hover {
-  opacity: 1;
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  margin: 0 22px; /* controls spacing around pipe */
 }
 
 /* =========================
-   Footer (Inter only)
+   Footer (Inter only) — stacked like reference
    ========================= */
 
 .site-footer {
   border-top: 1px solid var(--border-color);
   background: var(--background);
-
   font-family: var(--font-inter), sans-serif;
 }
 
 .site-footer__inner {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 20px var(--page-padding);
+  padding: 44px var(--page-padding);
+}
 
+/* Reuse the stacked centering idea from the header */
+.site-footer__inner--stacked {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
   gap: 18px;
-  flex-wrap: wrap;
+  text-align: center;
 }
 
-.footer-brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.footer-brand__name {
-  font-weight: 600;
-}
-
-.footer-links {
+/* Brand row (scaled down relative to header) */
+.footer-brand--stacked {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
+.footer-brand__name {
+  font-weight: 800;
+  font-size: 28px;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+/* Social icons row */
+.footer-links--centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
 .icon-link {
   display: inline-flex;
-  padding: 8px;
-  border-radius: 10px;
+  padding: 10px;
+  border-radius: 12px;
+  opacity: 0.9;
 }
 
 .icon-link:hover {
+  opacity: 1;
   background: color-mix(in srgb, var(--foreground) 6%, transparent);
 }
 
-.footer-meta {
+/* Footer text lines */
+.footer-lines {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  font-size: 13px;
-  opacity: 0.8;
+  gap: 10px;
 }
 
-.email-link {
+.footer-line--shout {
+  font-weight: 800;
+  font-style: italic;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Email line */
+.footer-email {
   color: inherit;
   text-decoration: none;
 }
 
-.email-link:hover {
+.footer-email:hover {
   text-decoration: underline;
+  text-underline-offset: 4px;
 }
