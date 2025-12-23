@@ -6,7 +6,7 @@
 
 :root {
   --background: #dfdac4;
-  --foreground: #4d2f2c;
+  --foreground: #000000;
 }
 
 /* Tailwind v4 theme bridge */
@@ -22,7 +22,7 @@
 /* Dark mode palette */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #4d2f2c;
+    --background: #000000;
     --foreground: #dfdac4;
   }
 }
