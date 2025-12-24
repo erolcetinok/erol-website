@@ -1,30 +1,55 @@
+import Image from "next/image";
+import Link from "next/link";
+
 export default function Home() {
   return (
-    <>
-      <h1>I'm Erol Cetinok, an aspiring mechanical engineer and roboticist</h1>
-      <h2>Welcome! This is a website (self-coded) to track my journey!</h2>
+    <section className="home-hero">
+      {/* Left: photo */}
+      <div className="home-hero__photo">
+        <Image
+          src="/headshot.png" // put your photo in /public/headshot.png
+          alt="Photo of Erol Cetinok"
+          width={520}
+          height={520}
+          priority
+          className="home-hero__photoImg"
+        />
+      </div>
 
-      <p>
-        I am a current senior at Woodside Priory School and a leading mechanical
-        design member of{" "}
-        <a
-          href="https://team751.com/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Team 751, Barn2Robotics
-        </a>
-        .
-        I am also a full-stack (at least I like to think so) roboticist as well as a software engineering intern at {" "} 
-        <a
-          href="https://ceramic.ai/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Ceramic.ai
-        </a>
-        .
-      </p>
-    </>
+      {/* Right: text + buttons */}
+      <div className="home-hero__content">
+        <h1 className="home-hero__title">
+          I&apos;m <span className="home-hero__highlight">Erol Cetinok</span>, an
+          aspiring mechanical engineer and roboticist.
+        </h1>
+
+        <div className="home-hero__buttons">
+          {/* Resume (no icon) */}
+          <a className="btn btn--primary" href="/resume.pdf" target="_blank" rel="noreferrer">
+            Resume
+          </a>
+
+          {/* LinkedIn (no icon) */}
+          <a
+            className="btn btn--primary"
+            href="https://www.linkedin.com/in/erol-cetinok-387830348/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            LinkedIn
+          </a>
+
+          {/* Contact (internal) */}
+          <Link className="btn btn--primary" href="/contact">
+            Contact
+          </Link>
+
+          {/* Blog (internal) */}
+          <Link className="btn btn--primary" href="/blog">
+            Blog
+          </Link>
+        </div>
+      </div>
+    </section>
   );
 }
