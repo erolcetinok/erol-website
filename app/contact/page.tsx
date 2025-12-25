@@ -91,7 +91,7 @@ export default function ContactPage() {
           className="contact-submit"
           disabled={status.type === "sending"}
         >
-          {status.type === "sending" ? "Sending…" : "Send"}
+          {status.type === "sending" ? "Sending…" : "SEND"}
         </button>
 
         {status.type === "success" && (
