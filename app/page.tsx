@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { SOCIAL_LINKS } from "@/lib/constants";
 
 export default function Home() {
   return (
@@ -32,7 +33,7 @@ export default function Home() {
           {/* LinkedIn (no icon) */}
           <a
             className="btn btn--primary"
-            href="https://www.linkedin.com/in/erol-cetinok-387830348/"
+            href={SOCIAL_LINKS.linkedin}
             target="_blank"
             rel="noreferrer"
           >

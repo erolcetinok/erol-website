@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { SOCIAL_LINKS } from "@/lib/constants";
 
 type Status =
   | { type: "idle" }
@@ -57,7 +58,7 @@ export default function ContactPage() {
   <p>
     If you'd like to collaborate, have questions, or just want to say hello,
     you can email me at{" "}
-    <a href="mailto:erol.cetinok@gmail.com">erol (dot) cetinok (at) gmail (dot) com</a> or use
+    <a href={`mailto:${SOCIAL_LINKS.email}`}>erol (dot) cetinok (at) gmail (dot) com</a> or use
     the form below.
   </p>
 </div>

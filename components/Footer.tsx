@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { SOCIAL_LINKS } from "@/lib/constants";
 
 const year = new Date().getFullYear();
 
@@ -30,7 +31,7 @@ export default function Footer() {
         {/* icons of social media sights */}
         <div className="footer-links footer-links--centered">
           <a
-            href="https://www.linkedin.com/in/erol-cetinok-387830348/"
+            href={SOCIAL_LINKS.linkedin}
             target="_blank"
             rel="noreferrer"
             aria-label="LinkedIn"
@@ -40,7 +41,7 @@ export default function Footer() {
           </a>
 
           <a
-            href="https://github.com/erolcetinok"
+            href={SOCIAL_LINKS.github}
             target="_blank"
             rel="noreferrer"
             aria-label="GitHub"
@@ -50,7 +51,7 @@ export default function Footer() {
           </a>
 
           <a
-            href="https://www.youtube.com/@ErolBuilds"
+            href={SOCIAL_LINKS.youtube}
             target="_blank"
             rel="noreferrer"
             aria-label="YouTube"
@@ -68,7 +69,7 @@ export default function Footer() {
 
           <a
             className="footer-line footer-line--shout footer-email"
-            href="mailto:erol.cetinok@gmail.com"
+            href={`mailto:${SOCIAL_LINKS.email}`}
           >
             CONTACT @ erol (dot) cetinok (at) gmail (dot) com
           </a>

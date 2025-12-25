@@ -19,7 +19,7 @@
   --font-serif: var(--font-libre);
 }
 
-/* global defaults /
+/* global defaults */
 
 body {
   background: var(--background);
@@ -72,7 +72,7 @@ small,
   opacity: 0.75;
 }
 
-/* layout cosntants */
+/* layout constants */
 
 .page {
   max-width: var(--max-width);
@@ -137,17 +137,6 @@ small,
 
 /* Nav row */
 .nav {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 40px;
-  font-size: 20px;
-  width: 100%;
-}
-
-/* nav row */
-.nav {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -159,7 +148,7 @@ small,
 
   font-size: 20px;
 
-  /* scroll insgead of wrap */
+  /* scroll instead of wrap */
   overflow-x: auto;
   white-space: nowrap;
   -webkit-overflow-scrolling: touch;
@@ -408,10 +397,10 @@ li a:hover::after {
 
 
   border-radius: 0;
-  border: 1px solid #000;
+  border: 1px solid var(--foreground);
 
 
-  background: #000;
+  background: var(--foreground);
   color: var(--background);
 
 
@@ -424,25 +413,8 @@ li a:hover::after {
 }
 
 .contact-submit:hover {
+  background: color-mix(in srgb, var(--foreground) 90%, transparent);
   opacity: 0.85;
-}
-
-.contact-submit:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-.contact-submit:hover {
-  opacity: 0.85;
-}
-
-.contact-submit:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-.contact-submit:hover {
-  background: #111111;
 }
 
 .contact-submit:disabled {
@@ -485,7 +457,7 @@ li a:hover::after {
 }
 
 .home-hero__photo {
-  border: 6px solid #000;
+  border: 6px solid var(--foreground);
   background: transparent;
 }
 
@@ -520,9 +492,9 @@ li a:hover::after {
 .btn {
   display: inline-block;
   padding: 14px 22px;
-  border: 1px solid #000;
+  border: 1px solid var(--foreground);
   border-radius: 0;             /* sharp edges */
-  background: #000;             /* black */
+  background: var(--foreground);             /* black */
   color: var(--background);     /* match background */
   font-family: var(--font-inter), sans-serif;
   text-transform: uppercase;

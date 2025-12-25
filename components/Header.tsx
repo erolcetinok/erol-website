@@ -3,15 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-
-const navItems = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/projects", label: "Projects" },
-  { href: "/blog", label: "Blogs" },
-  { href: "/research", label: "Research" },
-  { href: "/contact", label: "Contact" },
-];
+import { NAV_ITEMS } from "@/lib/constants";
 
 export default function Header({ className }: { className?: string }) {
   const pathname = usePathname();
@@ -39,7 +31,7 @@ export default function Header({ className }: { className?: string }) {
         </Link>
 
         <nav aria-label="Primary" className="nav">
-          {navItems.map((item) => {
+          {NAV_ITEMS.map((item) => {
             const isActive =
               item.href === "/"
                 ? pathname === "/"
