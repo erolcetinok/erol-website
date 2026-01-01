@@ -35,16 +35,27 @@ export default function Header({ className }: { className?: string }) {
             const isActive =
               item.href === "/"
                 ? pathname === "/"
-                : pathname.startsWith(item.href);
+                : !item.external && pathname.startsWith(item.href);
 
             return (
               <span key={item.href} className="nav__item">
-                <Link
-                  href={item.href}
-                  className={`nav__link ${isActive ? "is-active" : ""}`}
-                >
-                  {item.label}
-                </Link>
+                {item.external ? (
+                  <a
+                    href={item.href}
+                    className="nav__link"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {item.label}
+                  </a>
+                ) : (
+                  <Link
+                    href={item.href}
+                    className={`nav__link ${isActive ? "is-active" : ""}`}
+                  >
+                    {item.label}
+                  </Link>
+                )}
               </span>
             );
           })}
