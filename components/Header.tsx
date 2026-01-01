@@ -32,29 +32,19 @@ export default function Header({ className }: { className?: string }) {
 
         <nav aria-label="Primary" className="nav">
           {NAV_ITEMS.map((item) => {
-            const isExternal = 'external' in item && item.external;
             const isActive =
               item.href === "/"
                 ? pathname === "/"
-                : !isExternal && pathname.startsWith(item.href);
+                : pathname.startsWith(item.href);
 
             return (
               <span key={item.href} className="nav__item">
-                {isExternal ? (
-                  <a
-                    href={item.href}
-                    className="nav__link"
-                  >
-                    {item.label}
-                  </a>
-                ) : (
-                  <Link
-                    href={item.href}
-                    className={`nav__link ${isActive ? "is-active" : ""}`}
-                  >
-                    {item.label}
-                  </Link>
-                )}
+                <Link
+                  href={item.href}
+                  className={`nav__link ${isActive ? "is-active" : ""}`}
+                >
+                  {item.label}
+                </Link>
               </span>
             );
           })}

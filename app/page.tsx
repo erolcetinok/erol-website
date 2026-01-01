@@ -45,13 +45,10 @@ export default function Home() {
             Contact
           </Link>
 
-          {/* Blog (external) */}
-          <a
-            className="btn btn--primary"
-            href="https://erolcetinok.bearblog.dev/"
-          >
+          {/* Blog (internal) */}
+          <Link className="btn btn--primary" href="/blog">
             Blog
-          </a>
+          </Link>
         </div>
       </div>
     </section>
